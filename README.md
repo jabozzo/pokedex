@@ -39,10 +39,10 @@
 	    ```
 
     - Install dependencies
-        Run bundle install
+        Run `bundle install`
 
     - Deploy project
-    	Run rails s
+    	Run `rails s`
 
     - Input
-        Open in browser http://localhost:3000/
+        Open in browser `http://localhost:3000/`
