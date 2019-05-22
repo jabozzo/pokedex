@@ -26,12 +26,17 @@
 * Configuration
 
 	- Install Ruby Version Manager(RVM) with Ruby
+		You can find the installation steps in: https://rvm.io/
+		However, this are the few necessary steps:
+		
 	    Before any other step install mpapis public key (might need gpg2) (see security)
+	    ```
 	    gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 	    \curl -sSL https://get.rvm.io | bash -s stable --ruby
 	    source /home/user/.rvm/scripts/rvm
 	    rvm list to verify the correct installation (It must show list of installed ruby versions)
 	    run rvm use ruby-2.3.3 or the rvm use ruby of installed version
+	    ```
 
     - Install dependencies
         Run bundle install
