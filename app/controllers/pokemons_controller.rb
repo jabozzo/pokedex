@@ -22,9 +22,48 @@ class PokemonsController < ApplicationController
   end
 
   def show
-    # You need complete the code here!
-    # function load the details of the pokemon with its
-    # entry number, show the image, name, weight, height,
-    # moves, abilities and species
+    begin
+      err_msg = 'Ocurrió un error en la consulta hacia pokeapi. Por favor, inténtalo nuevamente'
+
+      # Default image and text if an error occurs
+      @name = "MissingNo"
+      @front_url = Rails.configuration.misigno_image
+      @back_url = Rails.configuration.misigno_image
+
+      @height = "???"
+      @weight = "???"
+      @abilities = ""
+      @moves = ""
+
+      # Make request
+      id = params["id"]
+      url = Rails.configuration.api_url + "pokemon/#{id}/"
+      response = RestClient.get url
+
+      # Data is response is successfull
+      if response.code == 200
+        response = JSON.parse(response)
+
+        @name = response["name"].capitalize
+        @front_url = Rails.configuration.image_base + "#{id}.png"
+        @back_url = Rails.configuration.image_back_base + "#{id}.png"
+
+        @height = "%0.3f m." % [response["height"] * 0.1]
+        @weight = "%0.3f Kg." % [response["weight"] * 0.01]
+
+        abilities = response["abilities"].collect{|x| x["ability"]["name"]}
+        moves = response["moves"].collect{|x| x["move"]["name"]}
+
+        @abilities = abilities.sort.join(", ")
+        @moves = moves.sort.join(", ")
+
+      else
+        flash[:error] = err_msg
+      end
+  rescue
+    flash[:error] = err_msg
+  end
+
+
   end
 end

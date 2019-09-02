@@ -1,17 +1,26 @@
 <div class="work-feature-block row">
-  <img class="work-feature-block-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png" alt="2">
-  <h2 class="work-feature-block-header text-center"><strong>Ivysaur</strong></h2>
+
+  <!-- Using the centered version to have a side-by-side layout -->
+  <!-- <img class="work-feature-block-image" src="<%= @front_url %>" alt="<%= @name %> front image."> -->
+  <!-- <img class="work-feature-block-image" src="<%= @back_url %>" alt="<%= @name %> back image."> -->
+
+  <center>
+      <img src="<%= @front_url %>" alt="<%= @name %> front image.">
+      <img src="<%= @back_url %>" alt="<%= @name %> back image.">
+  </center>
+
+  <h2 class="work-feature-block-header text-center"><strong><%= @name %></strong></h2>
 </div>
 <div class="work-feature-block row">
   <div class="col-xs-12">
     <label>Peso:</label>
-    <p>You need complete with pokemon's weight</p>
+    <p><%= @weight %></p>
     <label>Altura:</label>
-    <p>You need complete with pokemon's height</p>
+    <p><%= @height %></p>
     <label>Habilidades:</label>
-    <p>You need complete with pokemon's abilities</p>
+    <p><%= @abilities %></p>
     <label>Movimientos:</label>
-    <p>You need complete with pokemon's movements</p>
+    <p><%= @moves %></p>
   </div>
 </div>
 <div class="row">

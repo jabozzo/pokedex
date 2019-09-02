@@ -20,5 +20,7 @@ module PokeTest
     config.image_base = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
     # the public url base to serve the pokemon default back image
     config.image_back_base = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/'
+    # Url form misigno image
+    config.misigno_image = 'https://cyndiquil721.files.wordpress.com/2014/02/missingno.png'
   end
 end
